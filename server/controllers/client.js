@@ -59,7 +59,6 @@ export const getTransactions = async (req, res) => {
       .limit(pageSize);
 
     const total = await Transaction.countDocuments();
-    console.log(`here is the total ${total}`);
 
     res.status(200).json({
       transactions,
