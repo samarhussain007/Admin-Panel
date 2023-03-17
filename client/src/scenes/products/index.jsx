@@ -29,7 +29,6 @@ const Product = ({
   const handleExpandClick = () => {
     setIsExpanded(!isExpanded);
   };
-
   return (
     <Card
       sx={{
@@ -72,10 +71,10 @@ const Product = ({
           <Typography>id:{_id}</Typography>
           <Typography>Supply Left:{supply}</Typography>
           <Typography>
-            Yearly Sales This Year:{stat.yearlySalesTotal}
+            Yearly Sales This Year:{stat[0].yearlySalesTotal}
           </Typography>
           <Typography>
-            Yearly Units Sold This Year:{stat.yearlyTotalSoldUnits}
+            Yearly Units Sold This Year:{stat[0].yearlySalesTotal}
           </Typography>
         </CardContent>
       </Collapse>
@@ -85,7 +84,7 @@ const Product = ({
 const Products = () => {
   const { data, isLoading } = useGetProductsQuery();
   const isNonMobile = useMediaQuery("(min-width:1000px)");
-  console.log(data);
+
   return (
     <Box m="1.5rem 2.5rem">
       <Header title="Products" subtitle="See your list of products" />
@@ -101,9 +100,9 @@ const Products = () => {
             "&>div": { gridColumn: isNonMobile ? undefined : "span 4" },
           }}
         >
-          {data.map((product) => (
-            <Product key={product._id} {...product} />
-          ))}
+          {data.map((product) => {
+            return <Product key={product._id} {...product} />;
+          })}
         </Box>
       ) : (
         <>Loading...</>
