@@ -20,7 +20,6 @@ const OverviewChart = ({ isDashboard = false, view }) => {
       color: theme.palette.secondary[600],
       data: [],
     };
-    console.log(Object.values(monthlyData));
     Object.values(monthlyData).reduce(
       (acc, { month, totalSales, totalUnits }) => {
         const curSales = acc.sales + totalSales;

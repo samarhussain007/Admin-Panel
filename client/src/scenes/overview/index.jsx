@@ -1,4 +1,4 @@
-import React, { useMemo } from "react";
+import React from "react";
 import { useState } from "react";
 import { FormControl, MenuItem, InputLabel, Box, Select } from "@mui/material";
 import OverviewChart from "components/OverviewChart";
